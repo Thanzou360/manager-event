@@ -1,3 +1,6 @@
+"use client";
+
+
 // pages/login.js
 import { useState } from 'react';
 import Link from 'next/link';

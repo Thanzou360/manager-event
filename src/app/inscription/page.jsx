@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -49,7 +51,7 @@ const SignupPage = () => {
           />
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          S'inscrire
+          Sinscrire
         </button>
       </form>
       <div className="mt-4 text-center">
