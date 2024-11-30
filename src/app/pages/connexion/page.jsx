@@ -1,26 +1,31 @@
 "use client";
+
 import Header from '@/app/components/header';
 import { useState } from 'react';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
+import { useRouter } from 'next/navigation'; 
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter(); 
 
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("Connexion réussie pour:", { email, password });
+    
+    
+    router.push('/pages/event');
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-        <Header/>
-
+      <Header />
       <h1 className="text-3xl font-bold mb-6 text-center text-purple-600">Se Connecter</h1>
       <form onSubmit={handleLogin} className="bg-white rounded-lg shadow-lg p-6 md:max-w-md mx-auto">
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Adresse Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-black">Adresse Email</label>
           <input
             type="email"
             id="email"
@@ -31,7 +36,7 @@ const LoginPage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">Mot de Passe</label>
+          <label htmlFor="password" className="block text-sm font-medium text-black">Mot de Passe</label>
           <input
             type="password"
             id="password"
@@ -50,7 +55,7 @@ const LoginPage = () => {
           Pas encore de compte? <Link href="/pages/inscription" className="text-purple-600 hover:underline">Inscrivez-vous ici</Link>.
         </p>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

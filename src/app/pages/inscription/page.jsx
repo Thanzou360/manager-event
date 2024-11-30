@@ -4,13 +4,13 @@ import Header from '@/app/components/header';
 import { useState } from 'react';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
-import { useRouter } from 'next/navigation'; // Importez useRouter
+import { useRouter } from 'next/navigation'; 
 
 const SignupPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter(); // Initialisez useRouter
+  const router = useRouter(); 
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ const SignupPage = () => {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
         <div className="mb-4">
