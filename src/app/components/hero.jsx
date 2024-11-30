@@ -1,4 +1,5 @@
 import Link from "next/link"
+
 export default function Hero() {
     return (
       <div className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-20">
@@ -11,7 +12,7 @@ export default function Hero() {
               Créez, gérez et partagez vos événements en quelques clics. Une solution complète pour tous vos besoins d'organisation.
             </p>
             <div className="flex flex-col md:flex-row justify-center ">
-              <Link href="../app/pages/evenement" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+              <Link href="/pages/event" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
                 Découvrir les événements
               </Link>
             </div>

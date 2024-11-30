@@ -15,8 +15,8 @@ const SignupPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Créer un Compte</h1>
-      <form onSubmit={handleSignup} className="bg-white rounded-lg shadow-lg p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center text-purple-600">Créer un Compte</h1>
+      <form onSubmit={handleSignup} className="bg-white rounded-lg shadow-lg p-6 md:max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nom</label>
           <input
@@ -25,7 +25,7 @@ const SignupPage = () => {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
         <div className="mb-4">
@@ -36,7 +36,7 @@ const SignupPage = () => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
         <div className="mb-4">
@@ -47,16 +47,16 @@ const SignupPage = () => {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
-        <button type="submit" className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          Sinscrire
+        <button type="submit" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition duration-300">
+          S'inscrire
         </button>
       </form>
       <div className="mt-4 text-center">
         <p className="text-sm">
-          Déjà un compte? <Link href="/login" className="text-blue-600 hover:underline">Connectez-vous ici</Link>.
+          Déjà un compte? <Link href="/pages/connexion" className="text-purple-600 hover:underline">Connectez-vous ici</Link>.
         </p>
       </div>
     </div>
