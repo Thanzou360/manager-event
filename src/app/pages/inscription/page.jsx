@@ -1,7 +1,8 @@
 "use client";
-
+import Header from '@/app/components/header';
 import { useState } from 'react';
 import Link from 'next/link';
+import Footer from '@/app/components/footer';
 
 const SignupPage = () => {
   const [name, setName] = useState('');
@@ -15,6 +16,7 @@ const SignupPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
+        <Header />
       <h1 className="text-3xl font-bold mb-6 text-center text-purple-600">Créer un Compte</h1>
       <form onSubmit={handleSignup} className="bg-white rounded-lg shadow-lg p-6 md:max-w-md mx-auto">
         <div className="mb-4">
@@ -59,6 +61,7 @@ const SignupPage = () => {
           Déjà un compte? <Link href="/pages/connexion" className="text-purple-600 hover:underline">Connectez-vous ici</Link>.
         </p>
       </div>
+      <Footer/>
     </div>
   );
 };

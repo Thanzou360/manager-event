@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Header from '@/app/components/header';
 import Footer from '@/app/components/footer';
-import { useRouter } from 'next/navigation'; // Importation de la version de next/navigation
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const events = [
   {
@@ -20,7 +21,6 @@ const events = [
     location: "Atelier d'Art, Lyon",
     image: "https://via.placeholder.com/300",
   },
-  // Ajoutez d'autres événements ici
 ];
 
 const EventCard = ({ event, onViewMore }) => (
@@ -30,34 +30,29 @@ const EventCard = ({ event, onViewMore }) => (
       <h2 className="text-xl font-bold">{event.title}</h2>
       <p className="text-gray-600">{event.date}</p>
       <p className="text-gray-600">{event.location}</p>
-      <button onClick={() => onViewMore(event)} className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition duration-300">
+      <Link href="/pages/details"> <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition duration-300">
         Voir plus
-      </button>
+      </button></Link>
+      
     </div>
   </div>
 );
 
 const EventsPage = () => {
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  
-  // Utilisation du hook useRouter pour obtenir l'objet router
   const router = useRouter();
-
+  
   const isAuthenticated = false; // Remplacez cette variable par votre logique d'authentification
 
   const handleViewMore = (event) => {
-    setSelectedEvent(event);
-  };
-
-  const handleClosePopup = () => {
-    setSelectedEvent(null);
+    // Rediriger vers la page de détails de l'événement
+    router.push(`/event/${event.id}`); // Assurez-vous que l'ID de l'événement est correct
   };
 
   const handleCreateEvent = () => {
     if (!isAuthenticated) {
-      router.push('/pages/inscription'); // Redirige vers la page d'inscription
+      router.push('/pages/inscription'); 
     } else {
-      router.push('/create-event'); // Remplacez par la route de création d'événement
+      router.push('/pages/creation'); 
     }
   };
 
@@ -75,8 +70,6 @@ const EventsPage = () => {
             <EventCard key={event.id} event={event} onViewMore={handleViewMore} />
           ))}
         </div>
-
-        {selectedEvent && <EventPopup event={selectedEvent} onClose={handleClosePopup} />}
       </div>
       <Footer />
     </div>
