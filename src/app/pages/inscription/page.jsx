@@ -1,22 +1,27 @@
 "use client";
+
 import Header from '@/app/components/header';
 import { useState } from 'react';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
+import { useRouter } from 'next/navigation'; // Importez useRouter
 
 const SignupPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter(); // Initialisez useRouter
 
   const handleSignup = (e) => {
     e.preventDefault();
     console.log("Inscription réussie pour:", { name, email, password });
+    
+    router.push('/pages/event');
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-        <Header />
+      <Header />
       <h1 className="text-3xl font-bold mb-6 text-center text-purple-600">Créer un Compte</h1>
       <form onSubmit={handleSignup} className="bg-white rounded-lg shadow-lg p-6 md:max-w-md mx-auto">
         <div className="mb-4">
@@ -38,7 +43,7 @@ const SignupPage = () => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
         <div className="mb-4">
@@ -61,7 +66,7 @@ const SignupPage = () => {
           Déjà un compte? <Link href="/pages/connexion" className="text-purple-600 hover:underline">Connectez-vous ici</Link>.
         </p>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

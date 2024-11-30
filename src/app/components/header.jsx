@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className="bg-gradient-to-br from-indigo-600 to-purple-600 flex justify-between items-center p-4">
       <div className="logo">
-        <img src="/logo.png" alt="Logo" className="h-12" />
+        <img src="/logo.png" alt="Logo" className="h-12 w-full" />
       </div>
       <div className="flex items-center md:hidden">
         <button onClick={toggleSidebar} className="text-white">

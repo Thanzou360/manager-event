@@ -12,15 +12,22 @@ const events = [
     title: "Concert de Jazz",
     date: "15 Décembre 2024",
     location: "Salle de Concert, Paris",
-    image: "https://via.placeholder.com/300",
+    image: "/jazz.png",
   },
   {
     id: 2,
     title: "Atelier de Peinture",
     date: "20 Décembre 2024",
     location: "Atelier d'Art, Lyon",
-    image: "https://via.placeholder.com/300",
+    image: "/art.png",
   },
+  {
+    id:3,
+    title: "Atelier numérique",
+    date: "1 Décembre 2029",
+    location: "Atelier d'Art, Lyon",
+    image: "/numerique.png",
+  }
 ];
 
 const EventCard = ({ event, onViewMore }) => (

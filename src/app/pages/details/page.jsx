@@ -10,7 +10,7 @@ const EventDetailsPage = () => {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-center mb-6 text-purple-600">Concert de Jazz</h1>
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-          <img src="https://example.com/concert.jpg" alt="Concert de Jazz" className="w-full h-48 object-cover rounded-md mb-4" />
+          <img src="/jazz.png" alt="Concert de Jazz" className="w-full h-48 object-cover rounded-md mb-4" />
           <p className="text-gray-700 font-semibold">Date : 15 décembre 2024</p>
           <p className="text-gray-700 font-semibold">Lieu : Salle de Concert, Paris</p>
           <p className="text-gray-700 mt-4">Venez profiter d'une soirée inoubliable avec des musiciens de jazz renommés.</p>
