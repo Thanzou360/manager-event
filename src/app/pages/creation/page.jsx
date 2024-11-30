@@ -12,12 +12,24 @@ const CreateEventPage = () => {
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
   const [eventCreated, setEventCreated] = useState(false);
-  const router = useRouter();
+  const [imageFile, setImageFile] = useState(null);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ title, date, location, image, description });
     setEventCreated(true);
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result); // Convertir l'image en URL
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -57,13 +69,19 @@ const CreateEventPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold">Image URL</label>
+            <label className="block text-gray-700 font-semibold">Image (URL ou Fichier)</label>
             <input
               type="url"
+              placeholder="URL de l'image"
               value={image}
               onChange={(e) => setImage(e.target.value)}
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              required
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="mt-2 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
           <div className="mb-4">

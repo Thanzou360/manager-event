@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Header from '@/app/components/header';
 import Footer from '@/app/components/footer';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation'; // Importation de la version de next/navigation
+
 const events = [
   {
     id: 1,
@@ -30,9 +30,9 @@ const EventCard = ({ event, onViewMore }) => (
       <h2 className="text-xl font-bold">{event.title}</h2>
       <p className="text-gray-600">{event.date}</p>
       <p className="text-gray-600">{event.location}</p>
-        <button onClick={() => onViewMore(event)} className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition duration-300">
+      <button onClick={() => onViewMore(event)} className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition duration-300">
         Voir plus
-      </button> 
+      </button>
     </div>
   </div>
 );
@@ -40,8 +40,10 @@ const EventCard = ({ event, onViewMore }) => (
 const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   
+  // Utilisation du hook useRouter pour obtenir l'objet router
+  const router = useRouter();
 
-  const isAuthenticated = false; 
+  const isAuthenticated = false; // Remplacez cette variable par votre logique d'authentification
 
   const handleViewMore = (event) => {
     setSelectedEvent(event);
@@ -53,9 +55,9 @@ const EventsPage = () => {
 
   const handleCreateEvent = () => {
     if (!isAuthenticated) {
-      router.push('/pages/inscription'); 
+      router.push('/pages/inscription'); // Redirige vers la page d'inscription
     } else {
-      router.push('/create-event'); 
+      router.push('/create-event'); // Remplacez par la route de création d'événement
     }
   };
 

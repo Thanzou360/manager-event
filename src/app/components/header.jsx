@@ -23,12 +23,12 @@ const Header = () => {
         <div className="flex flex-col md:flex-row md:space-x-4 p-4 md:p-0">
           <Link href="/pages/creation" className="text-white hover:underline">Voir mes événements</Link>
           <div className="flex space-x-2 mt-4 md:mt-0">
-            <Link href="../app/pages/connexion"><button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700  cursor-pointer" >
+            <Link href="/pages/connexion"><button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700  cursor-pointer" >
               Connexion
             </button></Link>
-            <button className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 cursor-pointer" >
+              <Link href="/pages/inscription"> <button className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 cursor-pointer" >
               Inscription
-            </button>
+            </button></Link> 
           </div>
         </div>
         <button onClick={toggleSidebar} className="absolute top-4 right-4 text-white md:hidden">
